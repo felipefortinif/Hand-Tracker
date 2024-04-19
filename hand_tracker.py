@@ -7,7 +7,6 @@ import time
 confidence = float
 webcam_image = np.ndarray
 rgb_tuple = tuple[int, int, int]
-#coord_vector = 
 
 # Classe 
 class Detector:
@@ -74,7 +73,7 @@ if __name__ == '__main__':
 
     # Captura de imagem
     capture = cv2.VideoCapture(0)
-    while True:
+    while not (cv2.waitKey(20) & 0xFF == ord('q')):
         
         # Captura do frame
         _, img = capture.read()
@@ -97,14 +96,5 @@ if __name__ == '__main__':
         cv2.putText(img, str(int(fps)), (10, 25), cv2.FONT_HERSHEY_DUPLEX, 1, (0,255,0), 2)
         cv2.imshow('Camera', img)
         
-        # Testes
-        teste = Detec.find_position(img)
-        
-        
-        if cv2.waitKey(20) & 0xFF == ord('q'):
-            break
-         
-        
-        
-        
+   
         
